@@ -5,7 +5,6 @@ const cardImages = [
   { "src": "/images/cheesecake.png"},
   { "src": "/images/doughnut.png"},
   { "src": "/images/fish.png"},
-  { "src": "/images/food.png"},
   { "src": "/images/hamburger.png"},
   { "src": "/images/hotdog.png"},
   { "src": "/images/popcorn.png"}
@@ -28,8 +27,16 @@ function App() {
     <div className="App">
       <h1>Magic Match</h1>
       <button onClick={shuffleCards}>Start a New Game</button>
-
-      <div className='card-grid'></div>
+      <div className='card-grid'>
+        {cards.map(card => (
+          <div className="card" key={card.id}>
+            <div>
+              <img className="front" src={card.src} alt="card front" />
+              <img className="back" src='/images/cover.jpg' alt="card back" />
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
